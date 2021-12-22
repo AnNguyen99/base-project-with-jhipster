@@ -1,0 +1,11 @@
+{
+  "generator-jhipster": {
+    "appsFolders": ["gateway", "product", "sso"],
+    "directoryPath": "../",
+    "gatewayType": "SpringCloudGateway",
+    "clusteredDbApps": {},
+    "monitoring": "no",
+    "serviceDiscoveryType": "eureka",
+    "jwtSecretKey": "MGFlN2NlMTUzYzI0NzkxNmU1ZWEwMGNhM2MxNjg0NThjNTQwNTA0OThlMzJjMDAwZGI5MDNhZjgwYzk0YmNlYWQ1MTc1ZGMwZmNkODU2OTk4YjJjMGM5ZjE4Y2I4ODgyM2JkMA=="
+  }
+}
