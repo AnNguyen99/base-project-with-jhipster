@@ -83,6 +83,8 @@
         <lifecycle-mapping.version>1.0.0</lifecycle-mapping.version>
         <properties-maven-plugin.version>1.0.0</properties-maven-plugin.version>
         <sonar-maven-plugin.version>3.9.0.2155</sonar-maven-plugin.version>
+        <lombok.version>1.18.12</lombok.version>
+        <security-oauth2.version>2.5.1.RELEASE</security-oauth2.version>
         <!-- jhipster-needle-maven-property -->
     </properties>
 
@@ -157,6 +159,11 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -321,6 +328,12 @@
             <artifactId>metrics-core</artifactId>
         </dependency>
         <!-- jhipster-needle-maven-add-dependency -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.security.oauth/spring-security-oauth2 -->
+        <dependency>
+            <groupId>org.springframework.security.oauth</groupId>
+            <artifactId>spring-security-oauth2</artifactId>
+            <version>${security-oauth2.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -1010,6 +1023,42 @@
                                         </pluginExecution>
                                     </pluginExecutions>
                                 </lifecycleMappingMetadata>
+                            </configuration>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-compiler-plugin</artifactId>
+                            <version>${maven-compiler-plugin.version}</version>
+                            <configuration>
+                                <source>${java.version}</source>
+                                <target>${java.version}</target>
+                                <annotationProcessorPaths>
+                                    <path>
+                                        <groupId>org.springframework.boot</groupId>
+                                        <artifactId>spring-boot-configuration-processor</artifactId>
+                                        <version>${spring-boot.version}</version>
+                                    </path>
+                                    <path>
+                                        <groupId>org.mapstruct</groupId>
+                                        <artifactId>mapstruct-processor</artifactId>
+                                        <version>${mapstruct.version}</version>
+                                    </path>
+                                    <path>
+                                        <groupId>org.hibernate</groupId>
+                                        <artifactId>hibernate-jpamodelgen</artifactId>
+                                        <version>${hibernate.version}</version>
+                                    </path>
+                                    <path>
+                                        <groupId>org.glassfish.jaxb</groupId>
+                                        <artifactId>jaxb-runtime</artifactId>
+                                        <version>${jaxb-runtime.version}</version>
+                                    </path>
+                                    <path>
+                                        <groupId>org.projectlombok</groupId>
+                                        <artifactId>lombok</artifactId>
+                                        <version>${lombok.version}</version>
+                                    </path>
+                                </annotationProcessorPaths>
                             </configuration>
                         </plugin>
                     </plugins>
